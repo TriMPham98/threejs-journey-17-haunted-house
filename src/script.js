@@ -29,9 +29,11 @@ scene.add(house);
 
 // Walls
 const walls = new THREE.Mesh(
-  new THREE.BoxGeometry(1, 1, 1),
+  new THREE.BoxGeometry(4, 2.5, 4),
   new THREE.MeshStandardMaterial({color: "#ac8e82"})
-  );
+);
+
+walls.position.y = 2.5 / 2;
 
 house.add(walls);
 
