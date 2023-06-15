@@ -53,6 +53,15 @@ door.position.y = 1;
 door.position.z = 2 + 0.01; // (0.5 * depth of walls) + offset
 house.add(door);
 
+// Bushes
+const bushGeometry = new THREE.SphereGeometry(1, 16, 16); // radius: 1, width seg: 16, height seg: 16
+const bushMaterial = new THREE.MeshStandardMaterial({color: "#89c854"});
+
+const bush1 = new THREE.Mesh(bushGeometry, bushMaterial);
+bush1.scale.set(0.5, 0.5, 0.5);
+
+house.add(bush1);
+
 // Floor
 const floor = new THREE.Mesh(
   new THREE.PlaneGeometry(20, 20),
