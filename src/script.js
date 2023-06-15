@@ -29,13 +29,20 @@ scene.add(house);
 
 // Walls
 const walls = new THREE.Mesh(
-  new THREE.BoxGeometry(4, 2.5, 4),
+  new THREE.BoxGeometry(4, 2.5, 4), // width: 4, height: 2.5, depth: 4
   new THREE.MeshStandardMaterial({color: "#ac8e82"})
 );
-
 walls.position.y = 2.5 / 2;
-
 house.add(walls);
+
+// Roof
+const roof = new THREE.Mesh(
+  new THREE.ConeGeometry(3.5, 1, 4), // radius: 3.5, height: 1, radial segments: 4
+  new THREE.MeshStandardMaterial({color: "#b35f45"})
+);
+roof.rotation.y = Math.PI * 0.25;
+roof.position.y = 2.5 + (1 / 2); // height of cube + (0.5 * height of pyramid) 
+house.add(roof);
 
 // Floor
 const floor = new THREE.Mesh(
