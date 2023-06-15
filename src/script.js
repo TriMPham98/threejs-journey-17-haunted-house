@@ -59,6 +59,7 @@ const bushMaterial = new THREE.MeshStandardMaterial({color: "#89c854"});
 
 const bush1 = new THREE.Mesh(bushGeometry, bushMaterial);
 bush1.scale.set(0.5, 0.5, 0.5);
+bush1.position.set(0.8, 0.2, 2.2);
 
 house.add(bush1);
 
