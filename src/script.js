@@ -44,6 +44,15 @@ roof.rotation.y = Math.PI * 0.25;
 roof.position.y = 2.5 + (1 / 2); // height of cube + (0.5 * height of pyramid) 
 house.add(roof);
 
+// Door
+const door = new THREE.Mesh(
+  new THREE.PlaneGeometry(2, 2),
+  new THREE.MeshStandardMaterial({color: "white"})
+);
+door.position.y = 1;
+door.position.z = 2 + 0.01; // (0.5 * depth of walls) + offset
+house.add(door);
+
 // Floor
 const floor = new THREE.Mesh(
   new THREE.PlaneGeometry(20, 20),
