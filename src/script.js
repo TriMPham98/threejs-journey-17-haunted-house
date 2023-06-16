@@ -14,6 +14,10 @@ const canvas = document.querySelector("canvas.webgl");
 // Scene
 const scene = new THREE.Scene();
 
+// Fog
+const fog = new THREE.Fog("#262837", 10, 20); // color, near, far
+scene.fog = fog;
+
 /**
  * Textures
  */
@@ -126,9 +130,24 @@ gui
   .max(1)
   .step(0.001)
   .name("Moon Light Int.");
-gui.add(moonLight.position, "x").min(-5).max(5).step(0.001).name("Moon Light x");
-gui.add(moonLight.position, "y").min(-5).max(5).step(0.001).name("Moon Light y");
-gui.add(moonLight.position, "z").min(-5).max(5).step(0.001).name("Moon Light z");
+gui
+  .add(moonLight.position, "x")
+  .min(-5)
+  .max(5)
+  .step(0.001)
+  .name("Moon Light x");
+gui
+  .add(moonLight.position, "y")
+  .min(-5)
+  .max(5)
+  .step(0.001)
+  .name("Moon Light y");
+gui
+  .add(moonLight.position, "z")
+  .min(-5)
+  .max(5)
+  .step(0.001)
+  .name("Moon Light z");
 scene.add(moonLight);
 
 // Door light
@@ -185,6 +204,7 @@ const renderer = new THREE.WebGLRenderer({
 });
 renderer.setSize(sizes.width, sizes.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.setClearColor("#262837");
 
 /**
  * Animate
