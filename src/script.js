@@ -34,14 +34,22 @@ const doorMetalNessTexture = textureLoader.load("/textures/door/metalness.jpg");
 const doorRoughnessTexture = textureLoader.load("/textures/door/roughness.jpg");
 
 const bricksColorTexture = textureLoader.load("/textures/bricks/color.jpg");
-const bricksAmbientOcclusionTexture = textureLoader.load("/textures/bricks/ambientOcclusion.jpg");
+const bricksAmbientOcclusionTexture = textureLoader.load(
+  "/textures/bricks/ambientOcclusion.jpg"
+);
 const bricksNormalTexture = textureLoader.load("/textures/bricks/normal.jpg");
-const bricksRoughnessTexture = textureLoader.load("/textures/bricks/roughness.jpg");
+const bricksRoughnessTexture = textureLoader.load(
+  "/textures/bricks/roughness.jpg"
+);
 
 const grassColorTexture = textureLoader.load("/textures/grass/color.jpg");
-const grassAmbientOcclusionTexture = textureLoader.load("/textures/grass/ambientOcclusion.jpg");
+const grassAmbientOcclusionTexture = textureLoader.load(
+  "/textures/grass/ambientOcclusion.jpg"
+);
 const grassNormalTexture = textureLoader.load("/textures/grass/normal.jpg");
-const grassRoughnessTexture = textureLoader.load("/textures/grass/roughness.jpg");
+const grassRoughnessTexture = textureLoader.load(
+  "/textures/grass/roughness.jpg"
+);
 
 grassColorTexture.repeat.set(8, 8);
 grassAmbientOcclusionTexture.repeat.set(8, 8);
@@ -73,10 +81,11 @@ const walls = new THREE.Mesh(
     map: bricksColorTexture,
     aoMap: bricksAmbientOcclusionTexture,
     normalMap: bricksNormalTexture,
-    roughnessMap: bricksRoughnessTexture
+    roughnessMap: bricksRoughnessTexture,
   })
 );
-walls.geometry.setAttribute( // for aoMap
+walls.geometry.setAttribute(
+  // for aoMap
   "uv2",
   new THREE.Float32BufferAttribute(walls.geometry.attributes.uv.array, 2)
 );
@@ -104,10 +113,11 @@ const door = new THREE.Mesh(
     displacementScale: 0.1,
     normalMap: doorNormalTexture,
     metalnessMap: doorMetalNessTexture,
-    roughnessMap: doorRoughnessTexture
+    roughnessMap: doorRoughnessTexture,
   })
 );
-door.geometry.setAttribute( // for aoMap
+door.geometry.setAttribute(
+  // for aoMap
   "uv2",
   new THREE.Float32BufferAttribute(door.geometry.attributes.uv.array, 2)
 );
@@ -164,10 +174,11 @@ const floor = new THREE.Mesh(
     map: grassColorTexture,
     aoMap: grassAmbientOcclusionTexture,
     normalMap: grassNormalTexture,
-    roughnessMap: grassRoughnessTexture
+    roughnessMap: grassRoughnessTexture,
   })
 );
-floor.geometry.setAttribute( // for aoMap
+floor.geometry.setAttribute(
+  // for aoMap
   "uv2",
   new THREE.Float32BufferAttribute(floor.geometry.attributes.uv.array, 2)
 );
@@ -293,6 +304,22 @@ const clock = new THREE.Clock();
 
 const tick = () => {
   const elapsedTime = clock.getElapsedTime();
+
+  // Update ghosts
+  const ghost1Angle = elapsedTime * 0.5;
+  ghost1.position.x = Math.cos(ghost1Angle) * 4;
+  ghost1.position.z = Math.sin(ghost1Angle) * 4;
+  ghost1.position.y = Math.sin(elapsedTime) * 3;
+
+  const ghost2Angle = -elapsedTime * 0.5;
+  ghost2.position.x = Math.cos(ghost2Angle) * 5;
+  ghost2.position.z = Math.sin(ghost2Angle) * 5;
+  ghost2.position.y = Math.sin(elapsedTime * 4) + Math.sin(elapsedTime * 2.5);
+
+  const ghost3Angle = elapsedTime * 0.25;
+  ghost3.position.x = Math.cos(ghost1Angle) * (7 + Math.sin(elapsedTime * 0.32));
+  ghost3.position.z = Math.sin(ghost1Angle) * (7 + Math.sin(elapsedTime * 0.5));
+  ghost3.position.y = Math.sin(elapsedTime * 4) + (Math.sin(elapsedTime * 2.5));
 
   // Update controls
   controls.update();
