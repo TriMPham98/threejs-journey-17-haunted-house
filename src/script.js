@@ -53,6 +53,11 @@ door.position.y = 1;
 door.position.z = 2 + 0.01; // (0.5 * depth of walls) + offset
 house.add(door);
 
+// Door light
+const doorLight = new THREE.PointLight("#ff7d46", 1, 7);
+doorLight.position.set(0, 2.2, 2.7);
+house.add(doorLight);
+
 // Bushes
 const bushGeometry = new THREE.SphereGeometry(1, 16, 16); // radius: 1, width seg: 16, height seg: 16
 const bushMaterial = new THREE.MeshStandardMaterial({ color: "#89c854" });
@@ -108,7 +113,7 @@ scene.add(floor);
  * Lights
  */
 // Ambient light
-const ambientLight = new THREE.AmbientLight("#ffffff", 0.5);
+const ambientLight = new THREE.AmbientLight("#ffffff", 0.12);
 gui
   .add(ambientLight, "intensity")
   .min(0)
@@ -118,7 +123,7 @@ gui
 scene.add(ambientLight);
 
 // Directional light
-const moonLight = new THREE.DirectionalLight("#ffffff", 0.5);
+const moonLight = new THREE.DirectionalLight("#ffffff", 0.12);
 moonLight.position.set(4, 5, -2);
 gui
   .add(moonLight, "intensity")
