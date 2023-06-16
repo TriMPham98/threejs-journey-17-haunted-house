@@ -302,6 +302,7 @@ renderer.setClearColor("#262837");
  * Shadows
  */
 renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFShadowMap;
 
 moonLight.castShadow = true;
 doorLight.castShadow = true;
