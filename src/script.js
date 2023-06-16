@@ -315,6 +315,8 @@ bush3.castShadow = true;
 bush3.castShadow = true;
 bush4.castShadow = true;
 
+floor.receiveShadow = true;
+
 /**
  * Animate
  */
