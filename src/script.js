@@ -33,6 +33,11 @@ const doorNormalTexture = textureLoader.load("/textures/door/normal.jpg");
 const doorMetalNessTexture = textureLoader.load("/textures/door/metalness.jpg");
 const doorRoughnessTexture = textureLoader.load("/textures/door/roughness.jpg");
 
+const bricksColorTexture = textureLoader.load("/textures/bricks/color.jpg");
+const bricksAmbientOcclusion = textureLoader.load("/textures/bricks/ambientOcclusion.jpg");
+const bricksNormalTexture = textureLoader.load("/textures/bricks/normal.jpg");
+const bricksRoughnessTexture = textureLoader.load("/textures/bricks/roughness.jpg");
+
 /**
  * House
  */
