@@ -183,9 +183,9 @@ scene.add(graves);
 const graveGeometry = new THREE.BoxGeometry(0.6, 0.8, 0.2);
 const graveMaterial = new THREE.MeshStandardMaterial({ color: "#b2b6b1" });
 
-for (let i = 0; i < 35; i++) {
+for (let i = 0; i < 50; i++) {
   const angle = Math.random() * Math.PI * 2;
-  const radius = 3 + Math.random() * 6;
+  const radius = 5 + Math.random() * 8;
   const x = Math.sin(angle) * radius;
   const z = Math.cos(angle) * radius;
 
@@ -199,7 +199,7 @@ for (let i = 0; i < 35; i++) {
 
 // Floor
 const floor = new THREE.Mesh(
-  new THREE.PlaneGeometry(20, 20),
+  new THREE.PlaneGeometry(30, 30),
   new THREE.MeshStandardMaterial({
     map: grassColorTexture,
     aoMap: grassAmbientOcclusionTexture,
