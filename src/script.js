@@ -66,6 +66,30 @@ grassAmbientOcclusionTexture.wrapT = THREE.RepeatWrapping;
 grassNormalTexture.wrapT = THREE.RepeatWrapping;
 grassRoughnessTexture.wrapT = THREE.RepeatWrapping;
 
+const bushColorTexture = textureLoader.load("/textures/grass/color.jpg");
+const bushAmbientOcclusionTexture = textureLoader.load(
+  "/textures/grass/ambientOcclusion.jpg"
+);
+const bushNormalTexture = textureLoader.load("/textures/grass/normal.jpg");
+const bushRoughnessTexture = textureLoader.load(
+  "/textures/grass/roughness.jpg"
+);
+
+bushColorTexture.repeat.set(0.5, 0.5);
+bushAmbientOcclusionTexture.repeat.set(0.5, 0.5);
+bushNormalTexture.repeat.set(0.5, 0.5);
+bushRoughnessTexture.repeat.set(0.5, 0.5);
+
+bushColorTexture.wrapS = THREE.RepeatWrapping;
+bushAmbientOcclusionTexture.wrapS = THREE.RepeatWrapping;
+bushNormalTexture.wrapS = THREE.RepeatWrapping;
+bushRoughnessTexture.wrapS = THREE.RepeatWrapping;
+
+bushColorTexture.wrapT = THREE.RepeatWrapping;
+bushAmbientOcclusionTexture.wrapT = THREE.RepeatWrapping;
+bushNormalTexture.wrapT = THREE.RepeatWrapping;
+bushRoughnessTexture.wrapT = THREE.RepeatWrapping;
+
 /**
  * House
  */
@@ -127,7 +151,12 @@ house.add(door);
 
 // Bushes
 const bushGeometry = new THREE.SphereGeometry(1, 16, 16); // radius: 1, width seg: 16, height seg: 16
-const bushMaterial = new THREE.MeshStandardMaterial({ color: "#89c854" });
+const bushMaterial = new THREE.MeshStandardMaterial({ 
+  map: bushColorTexture,
+  aoMap: bushAmbientOcclusionTexture,
+  normalMap: bushNormalTexture,
+  roughnessMap: bushRoughnessTexture,
+ });
 
 const bush1 = new THREE.Mesh(bushGeometry, bushMaterial);
 bush1.scale.set(0.5, 0.5, 0.5);
