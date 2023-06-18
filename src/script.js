@@ -151,12 +151,12 @@ house.add(door);
 
 // Bushes
 const bushGeometry = new THREE.SphereGeometry(1, 16, 16); // radius: 1, width seg: 16, height seg: 16
-const bushMaterial = new THREE.MeshStandardMaterial({ 
+const bushMaterial = new THREE.MeshStandardMaterial({
   map: bushColorTexture,
   aoMap: bushAmbientOcclusionTexture,
   normalMap: bushNormalTexture,
   roughnessMap: bushRoughnessTexture,
- });
+});
 
 const bush1 = new THREE.Mesh(bushGeometry, bushMaterial);
 bush1.scale.set(0.5, 0.5, 0.5);
@@ -363,7 +363,6 @@ ghost3.shadow.mapSize.width = 256;
 ghost3.shadow.mapSize.height = 256;
 ghost3.shadow.camera.far = 7;
 
-
 /**
  * Animate
  */
@@ -378,7 +377,7 @@ const tick = () => {
   const angle = speed * elapsedTime;
   camera.position.x = radius * Math.sin(angle);
   camera.position.z = radius * Math.cos(angle);
-  
+
   // Look at the house while panning
   camera.lookAt(house.position);
 
@@ -394,9 +393,10 @@ const tick = () => {
   ghost2.position.y = Math.sin(elapsedTime * 4) + Math.sin(elapsedTime * 2.5);
 
   const ghost3Angle = elapsedTime * 0.25;
-  ghost3.position.x = Math.cos(ghost3Angle) * (7 + Math.sin(elapsedTime * 0.32));
+  ghost3.position.x =
+    Math.cos(ghost3Angle) * (7 + Math.sin(elapsedTime * 0.32));
   ghost3.position.z = Math.sin(ghost3Angle) * (7 + Math.sin(elapsedTime * 0.5));
-  ghost3.position.y = Math.sin(elapsedTime * 4) + (Math.sin(elapsedTime * 2.5));
+  ghost3.position.y = Math.sin(elapsedTime * 4) + Math.sin(elapsedTime * 2.5);
 
   // Update controls
   controls.update();
