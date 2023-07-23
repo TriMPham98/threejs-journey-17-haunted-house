@@ -315,6 +315,10 @@ scene.add(camera);
 
 // Controls
 const controls = new OrbitControls(camera, canvas);
+
+// Vertical angle limits
+controls.maxPolarAngle = (Math.PI / 2) - 0.01;
+
 controls.enableDamping = true;
 
 /**
