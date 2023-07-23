@@ -371,15 +371,15 @@ const clock = new THREE.Clock();
 const tick = () => {
   const elapsedTime = clock.getElapsedTime();
 
-  // Update camera position to pan around the house
-  const radius = 10; // distance from the house
-  const speed = 0.05; // speed of panning, adjust as needed
-  const angle = speed * elapsedTime;
-  camera.position.x = radius * Math.sin(angle);
-  camera.position.z = radius * Math.cos(angle);
+  // // Update camera position to pan around the house
+  // const radius = 10; // distance from the house
+  // const speed = 0.05; // speed of panning, adjust as needed
+  // const angle = speed * elapsedTime;
+  // camera.position.x = radius * Math.sin(angle);
+  // camera.position.z = radius * Math.cos(angle);
 
-  // Look at the house while panning
-  camera.lookAt(house.position);
+  // // Look at the house while panning
+  // camera.lookAt(house.position);
 
   // Update ghosts
   const ghost1Angle = elapsedTime * 0.5;
