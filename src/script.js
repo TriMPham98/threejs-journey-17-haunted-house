@@ -316,6 +316,10 @@ scene.add(camera);
 // Controls
 const controls = new OrbitControls(camera, canvas);
 
+// Zoom limits
+controls.minDistance = 4;
+controls.maxDistance = 10;
+
 // Vertical angle limits
 controls.maxPolarAngle = (Math.PI / 2) - 0.01;
 
